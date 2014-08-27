@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jscript/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="jscript/display_raw_code.js"></script>
+		
+		<script type="text/javascript" src="jscript/angular-1.2.9/angular.min.js"></script>
+	</head>
+
+	<body>		
+		<div class="display_raw_code">
+<div data-ng-app="">
+	<ul data-ng-init="nbr=30; str='String'">
+		<li>{{nbr | currency}}</li>
+		<li>{{str | lowercase}}</li>
+		<li>{{str | uppercase}}</li>
+	</ul>
+	
+	<ul data-ng-init="array=[ 
+		{name: 'Yannis', age: 22},
+		{name: 'Marco', age: 65},
+		{name: 'Remi', age: 16},
+		{name: 'Sylvain', age: 48}
+	]">
+		<li data-ng-repeat="p in array | orderBy:'age'">{{p.name + ' is ' + p.age}}</li>
+	</ul>
+	
+	Search for a name: <input type="text" ng-model="name">
+	<ul data-ng-init="array=[ 
+		{name: 'Yannis', age: 22},
+		{name: 'Marco', age: 65},
+		{name: 'Remi', age: 16},
+		{name: 'Sylvain', age: 48}
+	]">
+		<li data-ng-repeat="p in array | filter: name | orderBy:'age'">{{p.name + ' is ' + p.age}}</li>
+	</ul>
+</div>
+		</div>
+	</body>
+</html>

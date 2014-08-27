@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jscript/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="jscript/display_raw_code.js"></script>
+		
+		<script type="text/javascript" src="jscript/angular-1.2.9/angular.min.js"></script>
+	</head>
+
+	<body>
+		<div class="display_raw_code">
+<div data-ng-app="" data-ng-controller="personController">
+	Firstname: <input type="text" ng-model="person.firstName"><br />
+	Lastname: <input type="text" ng-model="person.lastName"><br />
+	<br />
+	Full Name: {{person.firstname + " " + person.lastname}}<br />
+	Full Name: {{person.fullname()}}<br />
+	Full Name: {{personFullname()}}
+</div>
+
+<script>
+function personController($scope) {
+	$scope.person = {
+		firstname: "Yannis",
+		lastname: "Thomias",
+		fullname: function() {
+			var p = $scope.person;
+			return p.firstname + " " + p.lastname;
+		}
+	};
+	
+	$scope.personFullname = function() {
+		var p = $scope.person;
+		return p.firstname + " " + p.lastname;
+	};
+}
+</script>
+		<div class="drc_explanation">
+			The controller is a basic JavaScript object constructor.<br />
+			The $scope is an object which refers to the application model.
+		</div>
+		</div>
+		Controllers can also be externalized into files.
+	</body>
+</html>

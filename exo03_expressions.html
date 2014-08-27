@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jscript/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="jscript/display_raw_code.js"></script>
+		
+		<script type="text/javascript" src="jscript/angular-1.2.9/angular.min.js"></script>
+	</head>
+
+	<body>
+		An expression is written between double curly-brace: {{}}<br />
+		It allows to read variables, do maths operations and string concatenation.<br />
+		Just follow JavaScript rules.
+		
+		<div class="display_raw_code">
+<div data-ng-app="">
+	<ul>
+		<li>Read variable: 
+			<ul data-ng-init="nbr=3; str='String'; array=[ 1, 2, 3 ]; obj={name: 'Yannis', age: 22}">
+				<li>Number: {{nbr}}</li>
+				<li>String: {{str}}</li>
+				<li>Array: {{array}}</li>
+				<li>Object: {{obj}}</li>
+				<li>...</li>
+			</ul>
+		</li>
+		
+		<li>Maths operations: 
+			<ul data-ng-init="nbr1=3; nbr2=15">
+				<li>10 + 2 = {{10 + 2}}</li>
+				<li>10 + 2 = {{10 - 2}}</li>
+				<li>10 * 2 = {{10 * 2}}</li>
+				<li>10 / 2 = {{10 / 2}}</li>
+				<li>10 % 2 = {{10 % 2}}</li>
+				<li>(9 - 5) * 3 + 2 = {{(9 - 5) * 3 + 2}}</li>
+				<li>nbr1 + nbr2 = {{nbr1 + nbr2}}</li>
+				<li>...</li>
+			</ul>
+		</li>
+		
+		<li>Concatenation: 
+			<ul data-ng-init="str1='Bonjour'; str2='Yannis'">
+				<li>{{"Hello" + " World"}}</li>
+				<li>{{str1 + " " + str2}}</li>
+				<li>{{str1 + " " + nbr}}</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+		</div>
+	</body>
+</html>

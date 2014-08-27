@@ -1,0 +1,64 @@
+<!--
+	"data-ng-" (HTML5 valid) or "ng-" (HTML5 non-valid) are prefixes for angularJS attributes.
+	Those attibutes are called "directives".
+	The "app" directive allow the block to own an angular application (here "my_app").
+	/!\ AngularJS does not have any effect outside an application /!\
+-->
+<html data-ng-app="my_app">
+	<head>
+	</head>
+
+	<!-- "init" directive allow to initialize application variables -->
+	<body ng-init="content='I can write what I want!!'; nbr1=2; nbr2=15">
+		Write anything here: <input type="text" data-ng-model="content" /><br />
+		And it appears here: <b data-ng-bind="content"></b><br />
+		<br />		
+		
+		<!-- Expressions are written between double curlybrace "{{}}" -->
+		Concatenation: {{ "Harry" + " Potter"}}<br />		
+		Calcul: 
+		<ul>
+			<li>10 + 2 = <b>{{10 + 2}}</b></li>
+			<li>10 + 2 = <b>{{10 - 2}}</b></li>
+			<li>10 * 2 = <b>{{10 * 2}}</b></li>
+			<li>10 / 2 = <b>{{10 / 2}}</b></li>
+			<li>10 % 2 = <b>{{10 % 2}}</b></li>
+			<li>(9 - 5) * 3 + 2 = <b>{{(9 - 5) * 3 + 2}}</b></li>
+		</ul>
+		All at the same time: <br />
+		First number: <input type="number" data-ng-model="nbr1" /><br />
+		Second number: <input type="number" data-ng-model="nbr2" /><br />
+		<b>{{nbr1}}</b> + <b>{{nbr2}}</b> = <b>{{nbr1 + nbr2}}</b>
+		
+		<br />
+		<br />
+		<div data-ng-init="person={firstName:'Yannis',lastName:'Thomias'}; array=[1, 2, 15, 'Hello']">
+			AngularJS can manage JavaScript object: <br />
+			Firstname: <b>{{ person.firstName }}</b> <br />
+			Lastname: <b>{{ person.lastName }}</b> <br />
+			<br />
+			AngularJS can manage JavaScript array: <br />
+			array[0] = <b>{{ array[0] }}</b> <br />
+			array[1] = <b>{{ array[1] }}</b> <br />
+			array[2] = <b>{{ array[2] }}</b> <br />
+			array[3] = <b>{{ array[3] }}</b> <br />
+			<br />
+			Reading over an array of objects with the "repeat" directive: <br />
+			<ul data-ng-init="persons=[
+				{name: 'Yannis', city: 'Villeparisis'},
+				{name: 'Jean-Louis', city: 'Torcy'},
+				{name: 'Hideo', city: 'Tokyo'}
+			]">
+				<!-- "repeat" directive allows to repeat a tag -->
+				<li data-ng-repeat="p in persons">{{p.name + " lives in " + p.city}}</li>
+			</ul>
+		</div>
+		
+		<!-- It is better to place scripts at the bottom of the "body" balise (src: W3Schools) -->
+		<script type="text/javascript" src="jscript/angular-1.2.9/angular.min.js"></script>
+		<script>
+// Retrieve the previous declared application "my_app"
+var app = angular.module('my_app', []); 
+		</script>
+	</body>
+</html>

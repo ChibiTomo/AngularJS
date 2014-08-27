@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jscript/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="jscript/display_raw_code.js"></script>
+
+		<script type="text/javascript" src="jscript/angular-1.2.9/angular.min.js"></script>
+	</head>
+
+	<body>
+		<div class="display_raw_code">
+<style>
+table, th , td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
+}
+table tr:nth-child(odd) {
+	background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+	background-color: #ffffff;
+}
+table th {
+	background-color: #cecece;
+}
+</style>
+
+<div data-ng-app="">
+	<div ng-app="" ng-controller="customersController">
+	Look for: <input type="text" ng-model="filter">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>City</th>
+			<th>Country</th>
+		</tr>
+		<tr data-ng-repeat="c in customers | filter: filter | orderBy:'Name'">
+			<td>{{c.Name}}</td>
+			<td>{{c.City}}</td>
+			<td>{{c.Country | uppercase}}</td>
+		</tr>
+	</table>
+</div>
+<script>
+function customersController($scope, $http) {
+	$http.get("http://www.w3schools.com/website/Customers_JSON.php")
+		.success(function(response) {
+			$scope.customers = response;
+		});
+}
+</script>
+		</div>
+	</body>
+</html>

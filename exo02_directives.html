@@ -1,0 +1,146 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="jscript/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="jscript/display_raw_code.js"></script>
+
+		<script type="text/javascript" src="jscript/angular-1.2.9/angular.min.js"></script>
+	</head>
+
+	<body data-ng-app="">
+		A directive is an HTML attribute wich begin by "data-ng-" or "ng-".<br />
+		"data-ng-" is HTML5 valid.<br />
+
+		<h1>General</h1>
+		<h3>data-ng-app</h3>
+		<div class="display_raw_code">
+<div data-ng-apρ="my_app"></div>
+<script>var app = angular.module('my_app', []);</script>
+
+<div class="drc_explanation">
+	<b>/!\ DO NOT COPY THIS! WRONG LETTERS!!! /!\</b><br />
+	It allows to declare an AngularJS application.<br />
+	Here the name of the application is "my_app", but it also can be empty.<br />
+	If the application has a name, you HAVE TO initialize it in a "script" tag.<br />
+
+	<b>/!\ AngularJS does not act outside application /!\</b><br />
+	<b>/!\ Only ONE application BLOCK per page! Even calling two times the SAME application WILL NOT works. /!\</b>
+</div>
+		</div>
+
+
+		<h3>data-ng-init</h3>
+		<div class="display_raw_code">
+			<div class="drc_line">
+<div data-ng-init="nbr=25"></div>
+
+<div class="drc_explanation">
+	It allows to declare an AngularJS variable.<br />
+	Here the variable name is "nbr" and its value is the integer "25".
+</div>
+			</div>
+
+			<div class="drc_line">
+<div data-ng-init="str='Hello'"></div>
+
+<div class="drc_explanation">
+	Here the string "str" contains "Hello" (declared between simple quotes).
+</div>
+			</div>
+
+			<div class="drc_line">
+<div data-ng-init="array=[ 1, 2, 'Hello', 'World' ]"></div>
+
+<div class="drc_explanation">
+	Here the array "array" contains "[ 1, 2, 'Hello', 'World' ]" (declared between brackets).
+</div>
+			</div>
+
+			<div class="drc_line">
+<div data-ng-init="obj={name: 'Yannis', age: 22}"></div>
+
+<div class="drc_explanation">
+	Here is an object (declared between simple curly-braces).
+</div>
+			</div>
+
+			<div class="drc_line">
+<div data-ng-init="persons=[ {name: 'Yannis', age: 22}, {name: 'Marco', age: 19} ]"></div>
+
+<div class="drc_explanation">
+	Here is an array of objects. And so on...
+</div>
+			</div>
+
+			<div class="drc_line">
+<div data-ng-init="nbr=25; str='Hello World'"></div>
+
+<div class="drc_explanation">
+	You can also use this directive to declare multiple variables.<br />
+	Spaces are not mandatory.
+</div>
+			</div>
+		</div>
+
+		<h3>data-ng-repeat</h3>
+		<div class="display_raw_code">
+<div data-ng-init="names=[ 'Yannis', 'Jean-Louis', 'Harry' ]">
+	<ul>
+		<li data-ng-repeat="x in names">Hello {{x}}!!!</li>
+	</ul>
+</div>
+
+<div class="drc_explanation">
+	It allow you to repeat a tag while running through an array.<br />
+	And here is the code (requires an expression, lesson2):
+</div>
+		</div>
+
+		<h1>Data Binding</h1>
+		<h3>data-ng-model</h3>
+		<div class="display_raw_code">
+<span data-ng-init="str='A string'"></span>
+<input data-ng-model="str" />
+
+			<div class="drc_explanation">
+				It allow to use the value of an AngularJS variable for the tag with value.
+			</div>
+		</div>
+
+		<h3>data-ng-bind</h3>
+		<div class="display_raw_code">
+			<b data-ng-bind="str"></b>
+
+			<div class="drc_explanation">
+				It allow to use the value of an AngularJS variable for the tag with value.<br />
+				And if you write something inside the input, the data will be bind inside the tag.
+			</div>
+		</div>
+
+		<h1>DOM/HTML</h1>
+		<h3>data-ng-disabled</h3>
+		<div class="display_raw_code">
+<span data-ng-init="button=true"></span>
+<button data-ng-disabled="button">Click Me</button><br />
+<input type="checkbox" data-ng-model="button">Disabled
+
+<div class="drc_explanation">
+	It allow to use the value of an AngularJS variable for the tag with value.<br />
+	And if you write something inside the input, the data will be bind inside the tag.
+</div>
+		</div>
+
+		<h1>Eent</h1>
+		<h3>data-ng-click</h3>
+		<div class="display_raw_code">
+<span data-ng-init="counter=0"></span>
+<button data-ng-click="counter = counter + 1">Click Me</button><br />
+Clicked {{counter}} times.
+
+<div class="drc_explanation">
+	It allow to use the value of an AngularJS variable for the tag with value.<br />
+	And if you write something inside the input, the data will be bind inside the tag.
+</div>
+		</div>
+	</body>
+</html>
