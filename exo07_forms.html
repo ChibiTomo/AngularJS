@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jscript/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="jscript/display_raw_code.js"></script>
+
+		<script type="text/javascript" src="jscript/angular-1.2.9/angular.min.js"></script>
+	</head>
+
+	<body>
+		<div class="display_raw_code">
+<form data-ng-app="" data-ng-controller="userCtrl" name="myForm" 
+	data-ng-init="userMinLength=3; userMaxLength=20" novalidate>
+	Name: 
+	<input type="text" name="user" data-ng-model="user" 
+		data-ng-minlength={{userMinLength}} 
+		data-ng-maxlength={{userMaxLength}} 
+		required 
+	/><br />
+	<span style="color:red" data-ng-show="myForm.user.$dirty && myForm.user.$invalid">
+		<span data-ng-show="myForm.user.$error.required">User name required.</span>
+		<span data-ng-show="myForm.user.$error.minlength">User name require at least {{userMinLength}} characters.</span>
+		<span data-ng-show="myForm.user.$error.maxlength">User name cannot be longer than {{userMaxLength}} characters</span>
+	</span><br />
+	Email: <input type="email" name="email" data-ng-model="email" required><br />
+	<span style="color:red" data-ng-show="myForm.email.$dirty && myForm.email.$invalid">
+		<span data-ng-show="myForm.email.$error.required">Email is required.</span>
+		<span data-ng-show="myForm.email.$error.email">Invalid email address.</span>
+	</span><br />
+	<input type="submit" value="OK" 
+		ng-disabled="myForm.user.$dirty && myForm.user.$invalid 
+					|| myForm.email.$dirty && myForm.email.$invalid"
+	/>
+</form>
+
+<script>
+function userCtrl($scope) {
+    $scope.user = 'John Doe';
+    $scope.email = 'john.doe@gmail.com';
+}
+</script>
+		</div>
+	</body>
+</html>
